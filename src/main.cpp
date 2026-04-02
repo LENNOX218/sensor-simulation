@@ -225,7 +225,7 @@ void setup()
     adc.generalCall(GC_RESET);
     for (int i = 0; i < 4; i++)
     {
-        adc.creg[i].bits = { GAINx1, R16B, CONTINUOUS, (Channel)i, 1 };
+        adc.creg[i].bits = { GAINx1, R12B, CONTINUOUS, (Channel)i, 1 };
     }
 
     // OLED 初期化
@@ -261,6 +261,7 @@ void loop()
     {
         checkDeviation();
         cnt = 0;
+        reset = 0;
     }
     else if ( reset == 1 && cnt < 10 )
     {
